@@ -19,17 +19,32 @@
 
             <div>
                 <input type="text" onchange="
-                alert('changed');
-                ">
-                <input type="button" value="day" onclick="
+                alert('changed');">
+                
+                <input id="day_night" type="button" value="night" onclick="
                     var body = document.querySelector('body');
-                    body.style.backgroundColor='#001100';
-                    body.style.color='black';
-                ">
-                <input type="button" value="night" onclick="
-                    var body = document.querySelector('body');
+
+                    //현재 value가 night이면 (바뀌고 나서 다음 상태 변화를 위해 day로 바꿔주어야함)
+                    if(this.value == 'night'){
                         body.style.backgroundColor='black';
                         body.style.color='white';
+                        this.value = 'day';
+
+                    }//현재 value가 day면 (바뀌고 나서 다음 상태 변화를 위해 night으로 바꿔주어야함)
+                    else{
+                        body.style.backgroundColor='white';
+                        body.style.color='black';
+                        this.value = 'night';
+                    }
+                    
+                ">
+
+                <input type="button" value="day" onclick="
+                    var body = document.querySelector('body');
+
+                    body.style.backgroundColor='#001100';
+                    body.style.color='white';
+                        
                 ">
                 <h2>JAVASCRIPT</h2>
                 Hello javascript
